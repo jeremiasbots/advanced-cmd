@@ -5,6 +5,7 @@
     <img src="https://img.shields.io/npm/v/advanced-cmd?color=%2340B5AD&label=version">
     <img src="https://img.shields.io/librariesio/dependents/npm/advanced-cmd?color=orange">
     <img src="https://img.shields.io/github/stars/jeremiasbots/advanced-cmd?color=%23e62e1b">
+    <img src="https://img.shields.io/npm/collaborators/advanced-cmd">
 </p>
 
 # Configuración

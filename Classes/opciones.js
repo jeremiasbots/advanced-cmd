@@ -17,8 +17,10 @@ class Options {
 
         let contenido = this.args[si]
 
-        if(string.joined && string.joined === true){
-            contenido = this.args.join(" ")
+        if(string?.joined){
+            if(string?.joined === true){
+                contenido = this.args.join(" ")
+            }
         }
 
         if(string === this.opt.pop()){
