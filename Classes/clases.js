@@ -44,7 +44,7 @@ class CommandBuilder {
         }
         this.data.options.push({ name: `${nombre}`, description: `${desc}`, type: 6, required: rq })
     }
-    addIntegerOption(nombre, desc, required){
+    addIntegerOption({ nombre, desc, required }){
         if(!this.data.options){
             this.data.options = []
         }
@@ -56,7 +56,7 @@ class CommandBuilder {
         }
         this.data.options.push({ name: `${nombre}`, description: `${desc}`, type: 4, required: rq })
     }
-    addBooleanOption(name, desc, required){
+    addBooleanOption({ nombre, desc, required }){
         if(!this.data.options){
             this.data.options = []
         }
@@ -66,9 +66,9 @@ class CommandBuilder {
         } else if(!required || required === false){
             rq = false
         }
-        this.data.options.push({ name: name, description: desc, type: 5, required: rq })
+        this.data.options.push({ name: nombre, description: desc, type: 5, required: rq })
     }
-    addChannelOption({ name, desc, required }){
+    addChannelOption({ nombre, desc, required }){
         if(!this.data.options){
             this.data.options = []
         }
@@ -78,12 +78,12 @@ class CommandBuilder {
         } else if(!required || required === false){
             rq = false
         }
-        this.data.options.push({ name: name, description: desc, type: 7, required: rq })
+        this.data.options.push({ name: nombre, description: desc, type: 7, required: rq })
     }
     addRoleOption(
         {
-            name,
-            description,
+            nombre,
+            desc,
             required
         }
     ){
@@ -96,11 +96,11 @@ class CommandBuilder {
         } else if(!required || required === false){
             rq = false
         }
-        this.data.options.push({ name: name, description: description, type: 8, required: rq })
+        this.data.options.push({ name: nombre, description: desc, type: 8, required: rq })
     }
     addAttachmentOption({
-        name,
-        description,
+        nombre,
+        desc,
         required
     }){
         if(!this.data.options){
@@ -112,7 +112,7 @@ class CommandBuilder {
         } else if(!required || required === false){
             rq = false
         }
-        this.data.options.push({ name: name, description: description, type: 11, required: rq })
+        this.data.options.push({ name: nombre, description: desc, type: 11, required: rq })
     }
     isolate(type){
         if(type === 1){
