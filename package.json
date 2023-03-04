@@ -1,9 +1,9 @@
 {
   "name": "advanced-cmd",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "Una npm que sirve para hacer un comando de prefix y interacción en el mismo archivo",
   "main": "index.js",
-  "types": "module.d.ts",
+  "types": "types/module.d.ts",
   "author": "JeremiasBots#2622",
   "license": "ISC",
   "engines": {
