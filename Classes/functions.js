@@ -54,15 +54,55 @@ function config(client, directory, __dirname, prefix){
             let users = []
             let channels = []
             let roles = []
+            let integers = []
+            let boolean = []
             message.isMsg = true
             message.user = message.author
             if(cmd.options){
                 cmd.options.map(x => {
                     if(x.required && x.required === true){
+                        if(x.type === 11) return;
                         const si = cmd.options.indexOf(x)
     
                         if(!args[si]){
                             retorned.push({ name: x.name })
+                        }
+                    }
+
+                    if(x.type === 5){
+                        const xd = cmd.options.indexOf(x)
+
+                        if(!args[xd]){
+                            return;
+                        }
+
+                        const boolean_type = args[xd]
+
+                        const boolean_array = ["true", "false"]
+
+                        if(!boolean_array.some(element => boolean_type.includes(element))){
+                            boolean.push({ name: x.name })
+                        }
+                    }
+
+                    if(x.type === 4){
+                        const xd = cmd.options.indexOf(x)
+
+                        if(!args[xd]){
+                            return;
+                        }
+
+                        const integer_type = args[xd]
+
+                        if(isNaN(integer_type)){
+                            integers.push({ name: x.name })
+                            return;
+                        }
+
+                        const numero = Number(integer_type)
+
+                        if(!Number.isInteger(numero)){
+                            integers.push({ name: x.name })
                         }
                     }
     
@@ -118,6 +158,16 @@ function config(client, directory, __dirname, prefix){
             if(retorned.length !== 0){
                 retorned = retorned.map(y => `\`${y.name}\``).join("\n")
                 message.reply(`Faltan las siguientes opciones:\n${retorned}`)
+                return;
+            }
+            if(boolean.length !== 0){
+                boolean = boolean.map(y => `\`${y.name}\``).join("\n")
+                message.reply(`Las siguientes opciones deben ser true/false:\n${boolean}`)
+                return;
+            }
+            if(integers.length !== 0){
+                integers = integers.map(y => `\`${y.name}\``).join("\n")
+                message.reply(`Las siguientes opciones deben ser un número entero:\n${integers}`)
                 return;
             }
             if(users.length !== 0){

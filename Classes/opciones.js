@@ -7,6 +7,28 @@ class Options {
         this.args = args
         this.opt = options;
     }
+    getBoolean(name){
+        if(!name){
+            throw new commanderError("Debe haber un nombre")
+        }
+        const boolean = this.opt.find(b => b.name === name)
+
+        let truefalse = this.opt.indexOf(boolean)
+
+        let message_content = this.args[truefalse]
+
+        if(message_content === "true"){
+            message_content = true
+        } else if(message_content === "false"){
+            message_content = false
+        }
+
+        if(message_content === undefined){
+            message_content = null
+        }
+
+        return message_content;
+    }
     getString(name){
         if(!name){
             throw new commanderError("Debe haber un nombre")

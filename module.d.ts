@@ -8,7 +8,6 @@ declare module 'advanced-cmd' {
         joined?: boolean
     }
 
-    /*
     interface DataOptionsArrayData {
         name: string,
         description: string,
@@ -16,13 +15,12 @@ declare module 'advanced-cmd' {
         required: boolean
         joined?: boolean
     }
-    */
 
     interface DataOptions {
         type: number
         name?: string
         description?: string
-        options?: object[]
+        options?: Array<DataOptionsArrayData>
         iso?: string
         execute?: Function
     }
@@ -53,6 +51,7 @@ declare module 'advanced-cmd' {
         addAttachmentOption({ nombre, desc, required }: AddOption)
         isolate(type: 1 | 2)
         toJSON()
+        verify()
     }
 
     export function config(client: any, directory: string, __dirname: string, prefix: string)
