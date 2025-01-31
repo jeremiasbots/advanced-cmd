@@ -1,0 +1,13 @@
+*.test.ts
+*.test.tsx
+*.test.js
+*.test.jsx
+*.js
+index.ts
+Classes/
+core/
+Commands/
+.idea/
+.vscode/
+.DS_Store
+.gitignore
